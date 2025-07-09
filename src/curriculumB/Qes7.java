@@ -1,19 +1,17 @@
 package curriculumB;
 
 import java.util.Scanner;
-
-public class Qes7 {
+	
+	public class Qes7 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		//変数を宣言して初期化
 		double numStudent = 0;
 		double studentAverage = 0;
-		double subjectAverage = 0;
 		double totalEnglishScore = 0;
 		double totalMathScore = 0;
 		double totalScienseScore = 0;
 		double totalSocialScore = 0;
-		double []studentAverages = new double [(int)numStudent];
 		
 		//繰り返し処理
 		while(true) {
@@ -54,6 +52,6 @@ public class Qes7 {
 		System.out.printf("数学の平均点は%.2fです\n", totalMathScore / numStudent);
 		System.out.printf("理科の平均点は%.2fです\n", totalScienseScore / numStudent);
 		System.out.printf("社会の平均点は%.2fです\n", totalSocialScore / numStudent);
-		System.out.printf("全体の平均点は%.2fです", (totalEnglishScore + totalMathScore + totalScienseScore + totalSocialScore ) / 4);
+		System.out.printf("全体の平均点は%.2fです", (totalEnglishScore + totalMathScore + totalScienseScore + totalSocialScore ) / (numStudent * 4));
 	}
 }	
