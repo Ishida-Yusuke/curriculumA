@@ -20,14 +20,4 @@ public class Animal {
     public int getSpeed() {
         return speed;
     }
-    // setter
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setLength(double length) {
-        this.length = length;
-    }
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
 }
