@@ -1,4 +1,4 @@
-package profile２;
+package profile2;
 
 public class Person {
 	private String name;
