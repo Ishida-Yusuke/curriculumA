@@ -1,42 +1,41 @@
 package profile3;
 
 public class Person {
-	// インスタンスの合計数をカウントするstaticフィールド（全体で共通）
-	private static int count = 0;
-	// 以下はインスタンスごとに固有のフィールド
-	private String firstName; //名前（名）
-	private String lastName; //苗字（姓）←問題１の追加フィールド
-	private int age; //年齢
-	private double height, weight; //身長（メートル）、体重（キログラム）
+    private static int count = 0;
+    private String lastName;  // 姓
+    private String firstName; // 名
+    private int age;
+    private double height, weight;
 
-	//コンストラクタ（問題2,3：lastNameをfirstNameの次に受け取る）
-	public Person(String firstName, String lastName, int age, double height, double weight) {
-		this.firstName = firstName; //名をセット
-		this.lastName = lastName; //姓をセット←問題３
-		this.age = age; //年齢をセット
-		this.height = height; //身長をセット
-		this.weight = weight; //体重をセット
-		Person.count++; // インスタンス数をカウント ← 問題3
-	}
+    public Person(String lastName, String firstName, int age, double height, double weight) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
+        Person.count++;
+    }
 
-	// フルネーム（姓＋名）を返すメソッド
-	public String fullName() {
-		return this.firstName + this.lastName;
-	}
+    // 姓＋名でフルネームを返す
+    public String fullName() {
+        return this.lastName + this.firstName;
+    }
 
-	// インスタンスの情報を出力するメソッド
-	public void print() {
-		System.out.println("名前は" + fullName() + "です");
-		System.out.println("年は" + this.age + "です");
-	}
+    // BMIを計算
+    public double bmi() {
+        return this.weight / (this.height * this.height);
+    }
 
-	// BMIを計算して返すメソッド
-	public double bmi() {
-		return this.weight / this.height / this.height;
-	}
+    // 情報を表示
+    public void print() {
+        double bmiTruncated = Math.floor(this.bmi()); // 小数第一位以下切り捨て
+        System.out.println("名前は" + fullName() + "です");
+        System.out.println("年は" + this.age + "才です");
+        System.out.println("BMIは" + bmiTruncated + "です");
+    }
 
-	// 現在のインスタンス数を表示するメソッド（static）
-	public static void printCount() {
-		System.out.println("合計" + Person.count + "人です");
-	}
+    // 人数を表示
+    public static void printCount() {
+        System.out.println("合計" + Person.count + "人です");
+    }
 }
